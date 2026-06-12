@@ -1,0 +1,6 @@
+{
+  "name": "KUSU",
+  "description": "Global Clothing e-Commerce & Fashion Delivery Platform specializing in worldwide delivery and custom college uniforms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

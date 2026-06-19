@@ -2,9 +2,9 @@ import { LanguageCode } from './types';
 
 export const TRANSLATIONS: Record<LanguageCode, Record<string, string>> = {
   en: {
-    tagline: 'Wear Your Style, Delivered Worldwide',
-    heroTitle: 'Fashion For Everyone, Delivered Anywhere',
-    heroSub: 'Shop traditional wear, western wear, formal outfits, nightwear, and college uniforms from around the world.',
+    tagline: 'ReVa Clothing Brand – Wear Confidence. Define Your Style.',
+    heroTitle: 'Modern Elegance, Timeless Style',
+    heroSub: 'Discover ReVa Clothing Brand. A luxurious fashion experience focused on quality craftsmanship, timeless style, and modern elegance.',
     shopNow: 'Shop Now',
     exploreCategories: 'Explore Categories',
     categories: 'Categories',
@@ -866,7 +866,7 @@ export const TRANSLATIONS: Record<LanguageCode, Record<string, string>> = {
     faqTitle: '热点与技术常见问题解答',
     outfitMatcher: 'AI 智能衣橱混搭评测',
     checkMatchScore: '使用 Gemini 验证穿搭匹配得分',
-    allRightsReserved: '版权所有 KUSU 团队。卓越时尚体验直送。',
+    allRightsReserved: '版权所有 ReVa 团队。卓越时尚体验直送。',
     rating: '星级评定',
     reviews: '条评价',
     discountSec: '今日折扣汇总',
@@ -976,7 +976,7 @@ export const TRANSLATIONS: Record<LanguageCode, Record<string, string>> = {
     faqTitle: '자주 제기되는 질의응답 요약',
     outfitMatcher: '인공지능 착장 코디 검증기',
     checkMatchScore: 'Gemini 의 믹스앤매치 트렌드 궁합 진단',
-    allRightsReserved: 'KUSU 패션 하우스 대표. 고품격 특급 배송 체계.',
+    allRightsReserved: 'ReVa 패션 하우스 대표. 고품격 특급 배송 체계.',
     rating: '평균 별점',
     reviews: '개의 우수 의견 및 별점',
     discountSec: '핫 세일즈 진행 상황판',

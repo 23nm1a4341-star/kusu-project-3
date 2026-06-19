@@ -56,7 +56,7 @@ export default function App() {
   // Mock initial placed order for presentation
   const [orders, setOrders] = useState<Order[]>([
     {
-      id: 'ORD-kusu-8849',
+      id: 'ORD-reva-8849',
       date: 'June 10, 2026',
       items: [
         {
@@ -200,7 +200,7 @@ export default function App() {
       return sum + ((disc + stitch) * item.quantity);
     }, 0);
 
-    const matchRandomId = 'ORD-kusu-' + Math.floor(1000 + Math.random() * 9000);
+    const matchRandomId = 'ORD-reva-' + Math.floor(1000 + Math.random() * 9000);
     const dateToday = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
     const newOrder: Order = {
@@ -304,10 +304,10 @@ export default function App() {
           <div className="space-y-12">
             
             {/* Elegant visual category quick navigations */}
-            <div className="space-y-4 font-sans">
-              <div className="text-left border-l-4 border-[#1E88E5] pl-3">
-                <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white">{t.exploreCategories}</h2>
-                <p className="text-xs text-white/50">Shop targeted clothing sections fabricated by global craftsmen.</p>
+            <div className="space-y-6 font-sans">
+              <div className="text-left border-l-2 border-yellow-500 pl-4 space-y-1">
+                <h2 className="text-2xl sm:text-3xl font-display font-light uppercase tracking-wider text-white">{t.exploreCategories}</h2>
+                <p className="text-xs text-white/40 tracking-wide">Shop targeted clothing sections fabricated by global craftsmen.</p>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -325,9 +325,9 @@ export default function App() {
                     className="group relative h-40 rounded-2xl overflow-hidden cursor-pointer glass-panel glass-panel-hover"
                   >
                     <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transform scale-102 group-hover:scale-110 transition-transform duration-500 opacity-80" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-4 text-left">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent flex flex-col justify-end p-4 text-left">
                       <span className="text-md mb-1">{cat.icon}</span>
-                      <h3 className="text-xs sm:text-sm font-black tracking-tight text-white uppercase">{cat.name}</h3>
+                      <h3 className="text-xs sm:text-sm font-bold tracking-wider text-white uppercase">{cat.name}</h3>
                     </div>
                   </div>
                 ))}
@@ -343,14 +343,14 @@ export default function App() {
             {/* Traditional and Uniform Hub promo split banners */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
-              {/* College uniform highlight panel banner with blue blur glass style */}
-              <div className="glass-blue-panel glass-blue-panel-hover rounded-2xl p-6 text-left flex flex-col justify-between space-y-6">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E88E5]/20 text-[#1E88E5] font-mono text-[9px] font-bold tracking-widest uppercase border border-[#1E88E5]/30">
+              {/* College uniform highlight panel banner with gold blur glass style */}
+              <div className="glass-blue-panel glass-blue-panel-hover rounded-2xl p-8 text-left flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-500 font-mono text-[9px] font-bold tracking-widest uppercase border border-yellow-500/20">
                     <GraduationCap className="w-3.5 h-3.5" />
                     <span>College Uniform Hub</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Tailored Collegiate Blazers & Suits</h3>
+                  <h3 className="text-2xl font-display font-light text-white">Tailored Collegiate <span className="italic text-yellow-200">Blazers & Suits</span></h3>
                   <p className="text-xs text-white/70 leading-relaxed pr-6">
                     Redeem volume savings and secure direct shipping. Custom stitching guarantees absolute fit on high-schools, GVP or Raghu Engineering apparel patterns.
                   </p>
@@ -358,7 +358,7 @@ export default function App() {
                 <div>
                   <button
                     onClick={() => { setSelectedCategory('College Uniforms'); setActiveTab('categories'); }}
-                    className="px-5 py-2.5 bg-[#1E88E5] hover:bg-blue-600 text-white text-[10px] font-mono tracking-widest uppercase font-bold rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black text-[10px] font-sans tracking-widest uppercase font-bold rounded transition-all cursor-pointer"
                   >
                     <span>Browse Official Uniforms</span>
                     <span>➔</span>
@@ -367,13 +367,13 @@ export default function App() {
               </div>
 
               {/* Discount Timed Promo banner with classic white border glass style */}
-              <div className="glass-panel glass-panel-hover p-6 rounded-2xl text-left flex flex-col justify-between space-y-6">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-400/20 text-red-300 font-mono text-[9px] font-bold tracking-widest uppercase border border-red-400/30">
+              <div className="glass-panel glass-panel-hover p-8 rounded-2xl text-left flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-400/10 text-red-300 font-mono text-[9px] font-bold tracking-widest uppercase border border-red-400/20">
                     <Tag className="w-3.5 h-3.5" />
                     <span>VOTED BEST COLLECTION</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Flat 20% Off All Traditional Silk wear</h3>
+                  <h3 className="text-2xl font-display font-light text-white">Flat 20% Off All <span className="italic text-yellow-200">Traditional Silk Wear</span></h3>
                   <p className="text-xs text-white/70 leading-relaxed">
                     Choose from absolute handcrafted Sarees, Velvet Sherwanis and Kurta combinations tailored with genuine Kanchipuram threads of pure gold.
                   </p>
@@ -381,7 +381,7 @@ export default function App() {
                 <div>
                   <button
                     onClick={() => setActiveTab('discounts')}
-                    className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-[10px] tracking-widest uppercase font-bold rounded border border-white/20 hover:border-white/40 flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white text-[10px] tracking-widest uppercase font-bold rounded border border-white/10 hover:border-white/20 flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>Claim Promo Code</span>
                     <span>➔</span>
@@ -392,15 +392,15 @@ export default function App() {
             </div>
 
             {/* Trending Clothing Product Lists grid */}
-            <div className="space-y-5">
-              <div className="flex justify-between items-end border-b border-gray-850 pb-3">
-                <div className="text-left">
-                  <h2 className="text-lg font-bold">Trending Fashion items</h2>
-                  <p className="text-xs text-gray-400">Top customer favorites this month worldwide.</p>
+            <div className="space-y-6">
+              <div className="flex justify-between items-end border-b border-white/5 pb-3">
+                <div className="text-left space-y-1">
+                  <h2 className="text-2xl font-display font-light text-white tracking-wide uppercase">Trending Collections</h2>
+                  <p className="text-xs text-white/40">Top customer favorites this season worldwide.</p>
                 </div>
                 <button
                   onClick={() => { setSelectedCategory(''); setActiveTab('categories'); }}
-                  className="text-xs text-blue-400 hover:underline hover:text-[#1E88E5] font-mono"
+                  className="text-xs text-yellow-500 hover:underline font-mono tracking-wider"
                 >
                   See all catalog ➔
                 </button>
@@ -563,7 +563,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-left text-xs">
           
           <div className="space-y-4">
-            <span className="font-pixel text-lg tracking-widest text-[#1E88E5] font-black">KUSU</span>
+            <div className="flex flex-col items-start gap-1">
+              <span className="font-luxury text-xl tracking-[0.2em] text-white font-bold">REVA</span>
+              <span className="text-[8px] font-sans text-white/40 tracking-[0.25em] uppercase font-medium">Clothing Brand</span>
+            </div>
             <p className="text-gray-400 leading-relaxed max-w-xs">{t.heroSub}</p>
           </div>
 
@@ -590,10 +593,10 @@ export default function App() {
           <div className="space-y-3">
             <h4 className="font-mono text-[10px] tracking-widest text-[#1E88E5] uppercase font-bold text-yellow-500">Global Customer Help</h4>
             <p className="text-gray-400 leading-relaxed">
-              Email: <strong>support@kusudelivery.com</strong><br />
-              Institutional: <strong>uniforms@kusudelivery.com</strong>
+              Email: <strong>support@revaclothing.com</strong><br />
+              Institutional: <strong>uniforms@revaclothing.com</strong>
             </p>
-            <p className="text-[10px] text-gray-500">© 2026 KUSU Ltd. All rights reserved globally.</p>
+            <p className="text-[10px] text-gray-500">© 2026 ReVa Ltd. All rights reserved globally.</p>
           </div>
 
         </div>
@@ -620,7 +623,7 @@ export default function App() {
               <div className="flex items-center justify-between border-b border-gray-800 pb-3">
                 <h3 className="text-sm font-bold flex items-center gap-2">
                   <Heart className="w-4 h-4 text-red-400 fill-red-400" />
-                  <span>KUSU Wishlist ({wishlist.length})</span>
+                  <span>ReVa Wishlist ({wishlist.length})</span>
                 </h3>
                 <button onClick={() => setShowWishlistModal(false)} className="text-gray-400 hover:text-white">
                   <X className="w-5 h-5" />

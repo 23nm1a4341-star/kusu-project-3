@@ -37,7 +37,7 @@ async function startServer() {
         return res.status(500).json({ error: "Gemini API Key is not configured. Please add it via Secrets Panel." });
       }
 
-      const prompt = `You are KUSU's premium fashion stylist. Provide 3 highly personalized clothing styles & item suggestions for:
+      const prompt = `You are ReVa's premium fashion stylist. Provide 3 highly personalized clothing styles & item suggestions for:
 - Occasion: ${occasion || "Any"}
 - Style Pref: ${stylePreference || "Modern & Elegant"}
 - Climate/Weather: ${weather || "Moderate"}
@@ -76,7 +76,7 @@ Do not include any markdown envelopes or other text. Return pure JSON.`;
         return res.status(500).json({ error: "Gemini API Key is not configured. Please add it via Secrets Panel." });
       }
 
-      const prompt = `You are a high-end fashion editor at KUSU Store critique. Evaluate this combination:
+      const prompt = `You are a high-end fashion editor at ReVa Store critique. Evaluate this combination:
 Top: ${top.name} (Category: ${top.category}, Color: ${top.color}, Material: ${top.material})
 Bottom: ${bottom.name} (Category: ${bottom.category}, Color: ${bottom.color}, Material: ${bottom.material})
 

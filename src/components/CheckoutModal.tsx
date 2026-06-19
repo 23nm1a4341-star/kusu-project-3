@@ -103,7 +103,7 @@ export default function CheckoutModal({
         <div className="bg-[#1E88E5]/15 p-5 border-b border-white/5 text-left font-sans">
           <h2 className="text-md sm:text-lg font-black uppercase tracking-tight flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-yellow-400 animate-pulse" />
-            <span>KUSU Secured Checkout Gateways</span>
+            <span>ReVa Secured Checkout Gateways</span>
           </h2>
           {/* Progress track */}
           <div className="flex items-center gap-4 mt-4 text-[10px] uppercase font-mono tracking-widest font-black">
@@ -282,7 +282,7 @@ export default function CheckoutModal({
                   
                   <div className="py-2 inline-block bg-white p-2.5 rounded-2xl border border-white/10 shadow-md">
                     <img
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=kusu@pay&pn=KUSU+Apparel+Delivery&am=${finalTotalRaw}&cu=INR`}
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=reva@pay&pn=REVA+Apparel+Delivery&am=${finalTotalRaw}&cu=INR`}
                       alt="Checkout QR Pay"
                       className="w-32 h-32 object-contain"
                       referrerPolicy="no-referrer"

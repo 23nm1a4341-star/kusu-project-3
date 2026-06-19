@@ -1,6 +1,6 @@
 {
-  "name": "KUSU",
-  "description": "Global Clothing e-Commerce & Fashion Delivery Platform specializing in worldwide delivery and custom college uniforms.",
+  "name": "ReVa Clothing Brand",
+  "description": "Premium Fashion Label focused on modern elegance, quality craftsmanship, and timeless style. Discover custom college uniforms, traditional, and contemporary wear with worldwide delivery.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

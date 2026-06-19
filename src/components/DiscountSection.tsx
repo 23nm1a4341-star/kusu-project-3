@@ -61,7 +61,7 @@ export default function DiscountSection({
     },
     {
       title: 'Newly Styled User promo',
-      desc: 'Sign up or shop for the first time on KUSU to redeem an instant gift.',
+      desc: 'Sign up or shop for the first time on ReVa to redeem an instant gift.',
       code: 'FIRSTSTYL',
       badge: '₹500 Gift',
       timerActive: false

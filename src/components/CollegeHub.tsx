@@ -411,7 +411,7 @@ export default function CollegeHub({
               <div className="p-8 text-center space-y-3 bg-green-500/10 border border-green-500/20 rounded-xl">
                 <span className="text-2xl">🎉</span>
                 <p className="text-xs font-bold text-green-400">Inquiry Received Successfully!</p>
-                <p className="text-[10px] text-white/65 leading-relaxed">The KUSU institutional uniform logistics desk will contact you with PDF estimates within 6 hours.</p>
+                <p className="text-[10px] text-white/65 leading-relaxed">The ReVa institutional uniform logistics desk will contact you with PDF estimates within 6 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleBulkSubmit} className="space-y-4 text-xs">

@@ -191,7 +191,7 @@ export default function MyOrdersPage({
                 </div>
                 {returnRequestedId === selectedOrder.id && (
                   <p className="text-[10px] text-green-300 font-semibold bg-green-500/10 border border-green-500/20 rounded-xl px-3 py-2 text-center leading-normal animate-pulse">
-                     ✓ Return process initialized! KUSU local courier will coordinate pick-up arrangements at your door within 48 hours.
+                     ✓ Return process initialized! ReVa local courier will coordinate pick-up arrangements at your door within 48 hours.
                   </p>
                 )}
               </div>
@@ -248,7 +248,7 @@ export default function MyOrdersPage({
 
             {/* Print Header */}
             <div className="border-b border-white/10 pb-4 text-center">
-              <h2 className="text-xl font-black tracking-widest text-[#1E88E5] font-sans">KUSU CLOTHING INVOICE</h2>
+              <h2 className="text-xl font-black tracking-widest text-yellow-500 font-sans">REVA CLOTHING INVOICE</h2>
               <p className="text-[10px] text-white/50 font-mono uppercase tracking-wider">Wear Your Style, Delivered Worldwide</p>
               <p className="text-[10px] text-yellow-500 font-mono mt-1 bg-yellow-400/10 px-3 py-0.5 rounded-full inline-block border border-yellow-400/20">Invoice Token ID: {showInvoice.id}</p>
             </div>
@@ -302,7 +302,7 @@ export default function MyOrdersPage({
 
             {/* Footer stamp */}
             <div className="text-center font-mono text-[9px] text-white/40 border-t border-white/5 pt-3 leading-relaxed">
-              🎉 Thank you for apparel shopping on KUSU. Secure custom logistics authorized.
+              🎉 Thank you for apparel shopping on ReVa. Secure custom logistics authorized.
             </div>
 
           </div>

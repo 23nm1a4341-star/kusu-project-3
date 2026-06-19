@@ -192,7 +192,7 @@ export default function AISector({ currentLang, onAddToCartDirect }: AISectorPro
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-[#1E88E5] animate-pulse" />
-            <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight">KUSU Interactive AI Fashion Suite</h2>
+            <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight">ReVa Interactive AI Fashion Suite</h2>
           </div>
           <p className="text-xs text-white/55">
             {aiStatus.configAvailable 

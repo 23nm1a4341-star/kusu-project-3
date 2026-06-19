@@ -18,7 +18,7 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
 
   const faqs = [
     {
-      q: '🚚 Which countries does KUSU deliver apparel to?',
+      q: '🚚 Which countries does ReVa deliver apparel to?',
       a: 'We support express international cargo delivery to over 150+ countries. Shipping is fast, secure, and moisture-sealed.'
     },
     {
@@ -30,7 +30,7 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
       a: 'Yes, our platform supports 9 primary global currencies (INR, USD, EUR, GBP, JPY, AED, SGD, AUD, CAD) showing real-time converted rates without any refresh.'
     },
     {
-      q: '🔄 What is KUSU return and refund policy?',
+      q: '🔄 What is ReVa return and refund policy?',
       a: 'Within 15 days of receiving the package, you can request a return package. We pick up return packs right from your home, verify conditions, and issue dynamic refunds instantly.'
     }
   ];
@@ -52,7 +52,7 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
       {/* Title */}
       <div className="border-b border-white/5 pb-4 font-sans">
         <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-          <span>{t.contactUs || 'Contact KUSU Support Desk'}</span>
+          <span>{t.contactUs || 'Contact ReVa Support Desk'}</span>
         </h2>
         <p className="text-xs text-white/55">Our customer team and AI support chatbots are active 24/7 globally.</p>
       </div>
@@ -69,7 +69,7 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
               <Mail className="w-5 h-5 text-yellow-400 flex-shrink-0" />
               <div>
                 <p className="text-white/40 text-[9px] uppercase font-mono font-bold">Email Support</p>
-                <p className="font-bold font-mono text-white/90">support@kusudelivery.com</p>
+                <p className="font-bold font-mono text-white/90">support@revaclothing.com</p>
               </div>
             </div>
 

@@ -85,16 +85,18 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4">
           
-          {/* Brand Logo in Courier New Style */}
+          {/* Brand Logo with Premium Luxury Fashion Aesthetics */}
           <div 
             onClick={() => onChangeTab('home')} 
             className="flex flex-col items-start cursor-pointer group flex-shrink-0"
             id="brand-logo"
           >
-            <span className="text-3.5xl font-black text-white group-hover:text-[#1E88E5] transition-colors leading-none tracking-tighter" style={{ fontFamily: "'Courier New', Courier, monospace", fontWeight: 900, letterSpacing: '-4px' }}>
-              KUSU
+            <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-yellow-400 transition-all duration-300 leading-none tracking-[0.2em] font-luxury">
+              REVA
             </span>
-            <span className="text-[9px] font-sans text-white/50 font-medium tracking-tight">Apparel Delivery</span>
+            <span className="text-[8px] font-sans text-white/40 group-hover:text-white/60 transition-colors font-medium tracking-[0.25em] uppercase mt-1">
+              CLOTHING BRAND
+            </span>
           </div>
 
           {/* Search bar with auto-suggestions */}

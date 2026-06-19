@@ -89,7 +89,7 @@ export default function CartPage({
     return (
       <div className="glass-panel rounded-2xl p-12 text-center text-white space-y-5 max-w-xl mx-auto my-10 border border-white/10">
         <PackageOpen className="w-16 h-16 text-white/30 mx-auto animate-bounce" />
-        <h3 className="text-lg font-black uppercase tracking-wide">Your KUSU cart is empty</h3>
+        <h3 className="text-lg font-black uppercase tracking-wide">Your ReVa cart is empty</h3>
         <p className="text-xs text-white/50 leading-relaxed">
           Complete your style file. Check our premium categories or Custom College uniform setups to populate checkout items.
         </p>

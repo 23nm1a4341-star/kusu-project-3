@@ -34,6 +34,10 @@ import MyOrdersPage from './components/MyOrdersPage';
 import ContactPage from './components/ContactPage';
 import AISector from './components/AISector';
 
+import { Login } from './components/Login';
+import { Signup } from './components/Signup';
+import { ProtectedRoute } from './components/ProtectedRoute';
+
 export default function App() {
   const [currentLang, setCurrentLang] = useState<LanguageCode>('en');
   const [currentCurrency, setCurrentCurrency] = useState<CurrencyCode>('INR');
@@ -49,6 +53,10 @@ export default function App() {
 
   // Active promo identifier
   const [appliedPromo, setAppliedPromo] = useState<string>('');
+
+  // Auth Modal display state
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authModalTab, setAuthModalTab] = useState<'login' | 'signup'>('login');
 
   // Checkout triggers
   const [showCheckout, setShowCheckout] = useState(false);
@@ -285,6 +293,7 @@ export default function App() {
         wishlist={wishlist}
         onOpenWishlist={() => setShowWishlistModal(true)}
         onSearchProduct={(q) => { setSearchQuery(q); setActiveTab('categories'); }}
+        onOpenLogin={() => { setAuthModalTab('login'); setShowAuthModal(true); }}
       />
 
       {/* Hero Banner display (Only home tab) */}
@@ -536,19 +545,30 @@ export default function App() {
             onUpdateQty={handleUpdateQty}
             onRemoveItem={handleRemoveItem}
             onApplyPromo={setAppliedPromo}
-            onProceedToCheckout={() => setShowCheckout(true)}
+            onProceedToCheckout={() => {
+              const userSession = localStorage.getItem('reva_auth_user');
+              if (!userSession) {
+                alert('Premium authentication required. Please sign in to finalize custom courier logistics.');
+                setAuthModalTab('login');
+                setShowAuthModal(true);
+              } else {
+                setShowCheckout(true);
+              }
+            }}
           />
         )}
 
         {/* ORDERS TRACKER VIEW DESIGN */}
         {activeTab === 'myOrders' && (
-          <MyOrdersPage
-            currentLang={currentLang}
-            currentCurrency={currentCurrency}
-            orders={orders}
-            onReorder={handleReorder}
-            onInitiateReturn={handleInitiateReturn}
-          />
+          <ProtectedRoute onShowLogin={() => { setAuthModalTab('login'); setShowAuthModal(true); }}>
+            <MyOrdersPage
+              currentLang={currentLang}
+              currentCurrency={currentCurrency}
+              orders={orders}
+              onReorder={handleReorder}
+              onInitiateReturn={handleInitiateReturn}
+            />
+          </ProtectedRoute>
         )}
 
         {/* FAQ & CONTACTS VIEW */}
@@ -670,6 +690,39 @@ export default function App() {
               Continue shopping
             </button>
 
+          </div>
+        </div>
+      )}
+
+      {/* LUXURY SECURE AUTH MODAL */}
+      {showAuthModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/85 backdrop-blur-md transition-all duration-300"
+            onClick={() => setShowAuthModal(false)}
+          ></div>
+          
+          <div className="relative w-full max-w-md z-10 animate-fadeIn">
+            <button
+              onClick={() => setShowAuthModal(false)}
+              className="absolute right-4 top-4 text-white/40 hover:text-white transition-colors cursor-pointer p-1.5 rounded-full hover:bg-white/5 z-20"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
+            {authModalTab === 'login' ? (
+              <Login
+                onClose={() => setShowAuthModal(false)}
+                onSwitchToSignup={() => setAuthModalTab('signup')}
+                onSuccess={() => setShowAuthModal(false)}
+              />
+            ) : (
+              <Signup
+                onClose={() => setShowAuthModal(false)}
+                onSwitchToLogin={() => setAuthModalTab('login')}
+                onSuccess={() => setShowAuthModal(false)}
+              />
+            )}
           </div>
         </div>
       )}

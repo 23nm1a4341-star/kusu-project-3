@@ -8,11 +8,13 @@ import {
   ChevronDown,
   User,
   Sparkles,
-  X
+  X,
+  LogOut
 } from 'lucide-react';
 import { LanguageCode, CurrencyCode, Product, CartItem } from '../types';
 import { LANGUAGES, CURRENCIES, PRODUCTS } from '../data';
 import { TRANSLATIONS } from '../translations';
+import { useAuth } from './AuthContext';
 
 interface NavbarProps {
   currentLang: LanguageCode;
@@ -25,6 +27,7 @@ interface NavbarProps {
   wishlist: Product[];
   onOpenWishlist: () => void;
   onSearchProduct: (query: string) => void;
+  onOpenLogin: () => void;
 }
 
 export default function Navbar({
@@ -37,7 +40,8 @@ export default function Navbar({
   cart,
   wishlist,
   onOpenWishlist,
-  onSearchProduct
+  onSearchProduct,
+  onOpenLogin
 }: NavbarProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState<Product[]>([]);
@@ -49,6 +53,9 @@ export default function Navbar({
     '📦 Premium worldwide delivery active instantly.'
   ]);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+  const { isAuthenticated, user, logout } = useAuth();
 
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
 
@@ -282,7 +289,7 @@ export default function Navbar({
             {/* Cart Icon */}
             <button
               onClick={() => onChangeTab('cart')}
-              className="p-2.5 bg-[#1E88E5] hover:bg-blue-600 rounded-full transition-all flex items-center justify-center gap-1.5 relative border border-white/10 shadow-lg"
+              className="p-2.5 bg-[#1E88E5] hover:bg-blue-600 rounded-full transition-all flex items-center justify-center gap-1.5 relative border border-white/10 shadow-lg cursor-pointer"
               title="Shopping Cart"
             >
               <ShoppingCart className="w-4.5 h-4.5 text-white" />
@@ -292,6 +299,68 @@ export default function Navbar({
                 </span>
               )}
             </button>
+
+            {/* Premium Session Auth Control Display */}
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="flex items-center gap-2 p-1 pl-3 pr-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all cursor-pointer"
+                  title="Your Profile Space"
+                >
+                  <span className="text-[10px] font-sans font-bold uppercase tracking-[0.1em] text-white/90 hidden sm:inline">
+                    {user?.name ? user.name.split(' ')[0] : 'Profile'}
+                  </span>
+                  <div className="w-7 h-7 rounded-full bg-yellow-500 text-black flex items-center justify-center font-bold text-[10px] tracking-wide uppercase shadow-lg border border-yellow-400/20">
+                    {user?.name ? user.name.charAt(0) : user?.email?.charAt(0) || 'U'}
+                  </div>
+                </button>
+
+                {showUserMenu && (
+                  <div className="absolute right-0 mt-2 w-56 glass-panel-deep rounded-xl shadow-2xl py-2 z-50 animate-fadeIn text-left border border-white/10">
+                    <div className="px-4 py-2 border-b border-white/5 space-y-0.5">
+                      <p className="text-[9px] font-mono tracking-widest text-[#1E88E5] uppercase font-black">Member Profile</p>
+                      <p className="text-xs font-bold text-white truncate">{user?.name || 'ReVa Host'}</p>
+                      <p className="text-[10px] text-white/50 truncate font-mono">{user?.email}</p>
+                    </div>
+                    
+                    <div className="py-1">
+                      <button
+                        onClick={() => {
+                          onChangeTab('myOrders');
+                          setShowUserMenu(false);
+                        }}
+                        className="w-full flex items-center gap-2 px-4 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 transition-colors text-left cursor-pointer"
+                      >
+                        <User className="w-3.5 h-3.5 text-yellow-500" />
+                        <span>My Order Book</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          logout();
+                          setShowUserMenu(false);
+                          onChangeTab('home');
+                        }}
+                        className="w-full flex items-center gap-2 px-4 py-2 text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors text-left border-t border-white/5 mt-1 cursor-pointer"
+                      >
+                        <LogOut className="w-3.5 h-3.5" />
+                        <span>Sign Out Session</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={onOpenLogin}
+                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-yellow-500 hover:text-yellow-400 font-sans font-bold text-[10px] tracking-widest uppercase rounded-full transition-all cursor-pointer flex items-center gap-1.5 text-white/90"
+                title="Member Sign In"
+              >
+                <User className="w-3.5 h-3.5" />
+                <span>Login</span>
+              </button>
+            )}
           </nav>
 
         </div>
